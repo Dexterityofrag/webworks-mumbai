@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fitness Hub Sakinaka — 20,000 sqft Unisex Gym | Strength, MMA, Sauna & Ice Bath</title>
+<meta name="description" content="Sakinaka's biggest gym — 20,000 sqft of strength & cardio, MMA academy, sauna, steam, jacuzzi & ice bath. Saki Vihar Road. Free trial: 86575 03395.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--org:#f97316;--red:#dc2626;--ink:#0c0a09;--paper:#fafaf9;--mut:#a8a29e;--dark:#1c1917;--line:#292524}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--paper);background:var(--ink);line-height:1.6}
+h1,h2,h3{font-family:'Archivo Black',sans-serif;text-transform:uppercase;letter-spacing:.01em}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;background:rgba(12,10,9,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:20}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:'Archivo Black',sans-serif;font-size:1.05rem;color:#fff}
+.logo span{color:var(--org)}
+.logo small{display:block;font-family:'Inter',sans-serif;font-size:.58rem;letter-spacing:.22em;color:var(--mut);font-weight:600}
+.call{background:var(--org);color:#0c0a09;padding:10px 18px;border-radius:999px;text-decoration:none;font-weight:800;font-size:.88rem}
+.hero{padding:70px 0 56px;background:radial-gradient(900px 400px at 85% -10%,rgba(249,115,22,.25) 0%,transparent 60%),radial-gradient(700px 300px at 5% 110%,rgba(220,38,38,.18) 0%,transparent 55%)}
+.hero .tag{display:inline-block;border:1px solid var(--org);color:var(--org);font-size:.74rem;font-weight:700;letter-spacing:.14em;padding:7px 16px;border-radius:999px;margin-bottom:20px}
+.hero h1{font-size:clamp(2.1rem,5.5vw,3.6rem);line-height:1.05;max-width:760px}
+.hero h1 em{font-style:normal;color:var(--org)}
+.hero p{margin:18px 0 28px;color:#d6d3d1;max-width:560px;font-size:1.05rem}
+.btn{display:inline-block;padding:14px 30px;border-radius:12px;text-decoration:none;font-weight:800;text-transform:uppercase;font-size:.9rem;letter-spacing:.04em}
+.btn.primary{background:var(--org);color:#0c0a09;margin-right:10px}
+.btn.wa{background:#16a34a;color:#fff}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:40px}
+.stat{background:var(--dark);border:1px solid var(--line);border-radius:14px;padding:18px;text-align:center}
+.stat b{font-family:'Archivo Black',sans-serif;font-size:1.6rem;color:var(--org);display:block}
+.stat span{font-size:.78rem;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+section{padding:56px 0}
+h2.t{font-size:1.7rem;margin-bottom:8px}
+h2.t em{font-style:normal;color:var(--org)}
+p.s{color:var(--mut);margin-bottom:32px;max-width:620px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:var(--dark);border:1px solid var(--line);border-radius:16px;padding:24px}
+.card .ico{font-size:1.8rem}
+.card h3{font-size:1rem;margin:12px 0 6px;color:#fff}
+.card p{font-size:.88rem;color:var(--mut)}
+.plans{background:var(--dark);border-block:1px solid var(--line)}
+.plan{background:var(--ink);border:1px solid var(--line);border-radius:18px;padding:28px;text-align:center}
+.plan h3{color:#fff;font-size:1.05rem}
+.plan .pr{font-family:'Archivo Black',sans-serif;font-size:2rem;color:var(--org);margin:10px 0 2px}
+.plan small{color:var(--mut)}
+.plan ul{list-style:none;margin-top:16px;text-align:left}
+.plan li{padding:6px 0 6px 26px;position:relative;font-size:.9rem;color:#d6d3d1}
+.plan li::before{content:"▸";position:absolute;left:4px;color:var(--org);font-weight:700}
+.strip{background:linear-gradient(135deg,var(--red),var(--org));border-radius:20px;padding:36px;text-align:center;color:#fff}
+.strip h3{font-size:1.5rem;margin-bottom:8px}
+.strip p{opacity:.9;margin-bottom:20px}
+.strip a{background:#0c0a09;color:#fff;padding:13px 28px;border-radius:12px;text-decoration:none;font-weight:800;text-transform:uppercase;font-size:.88rem}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.cbox{background:var(--dark);border:1px solid var(--line);border-radius:16px;padding:24px}
+.cbox h3{font-size:.95rem;margin-bottom:8px;color:var(--org)}
+.cbox p{font-size:.92rem;color:#d6d3d1}
+.cbox a{color:#fff;font-weight:700;text-decoration:none}
+iframe{width:100%;height:240px;border:0;border-radius:16px;filter:grayscale(.3)}
+footer{border-top:1px solid var(--line);padding:30px 0;font-size:.84rem;color:var(--mut)}
+.fab{position:fixed;right:18px;bottom:18px;background:#16a34a;color:#fff;width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;text-decoration:none;box-shadow:0 10px 24px rgba(22,101,52,.4);z-index:30}
+@media(max-width:760px){.contact-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <div class="logo">FITNESS <span>HUB</span><small>SAKINAKA · UNISEX GYM & ACADEMY</small></div>
+  <a class="call" href="tel:+918657503395">📞 86575 03395</a>
+</div></header>
+
+<div class="hero"><div class="wrap">
+  <span class="tag">SAKINAKA'S BIGGEST GYM — 20,000 SQFT</span>
+  <h1>Stop scrolling fitness reels. <em>Start lifting.</em></h1>
+  <p>Strength floor, cardio zone, MMA academy, sauna, steam, jacuzzi and ice bath — everything under one massive roof on Saki Vihar Road. First workout's on us.</p>
+  <a class="btn primary" href="https://wa.me/918657503395?text=Hi%20Fitness%20Hub%2C%20I%20want%20to%20book%20a%20free%20trial%20workout">Book free trial</a>
+  <a class="btn wa" href="tel:+918657503395">Call now</a>
+  <div class="stats">
+    <div class="stat"><b>20,000</b><span>sqft floor</span></div>
+    <div class="stat"><b>MMA</b><span>academy inside</span></div>
+    <div class="stat"><b>🧊</b><span>ice bath & sauna</span></div>
+    <div class="stat"><b>♀♂</b><span>unisex · all levels</span></div>
+  </div>
+</div></div>
+
+<section><div class="wrap">
+  <h2 class="t">Everything under <em>one roof</em></h2>
+  <p class="s">No more choosing between a gym, a fight academy and a recovery spa.</p>
+  <div class="grid">
+    <div class="card"><div class="ico">🏋️</div><h3>Strength Floor</h3><p>Full free-weight zone, racks, platforms and machines for every muscle group.</p></div>
+    <div class="card"><div class="ico">🏃</div><h3>Cardio Zone</h3><p>Treadmills, cross-trainers, bikes and stair climbers with a view.</p></div>
+    <div class="card"><div class="ico">🥊</div><h3>MMA & Kickboxing</h3><p>Learn striking and grappling from academy coaches — beginners welcome.</p></div>
+    <div class="card"><div class="ico">🧖</div><h3>Recovery Suite</h3><p>Sauna, steam, jacuzzi and ice bath to recover like an athlete.</p></div>
+    <div class="card"><div class="ico">💪</div><h3>Personal Training</h3><p>Certified trainers, transformation programs and diet guidance.</p></div>
+    <div class="card"><div class="ico">🕐</div><h3>Long Hours</h3><p>Early-morning to late-night slots that fit Mumbai work schedules.</p></div>
+  </div>
+</div></section>
+
+<section class="plans"><div class="wrap">
+  <h2 class="t">Membership <em>plans</em></h2>
+  <p class="s">Simple pricing, no hidden charges — ask about ongoing offers.</p>
+  <div class="grid">
+    <div class="plan"><h3>Monthly</h3><div class="pr">Ask</div><small>perfect to start</small>
+      <ul><li>Full gym access</li><li>Group classes</li><li>Locker & shower</li></ul></div>
+    <div class="plan"><h3>Quarterly</h3><div class="pr">Ask</div><small>most popular</small>
+      <ul><li>Everything in Monthly</li><li>1 PT session free</li><li>Recovery suite access</li></ul></div>
+    <div class="plan"><h3>Annual</h3><div class="pr">Ask</div><small>best value</small>
+      <ul><li>Everything in Quarterly</li><li>MMA academy discount</li><li>Freeze option</li></ul></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="strip">
+    <h3>First workout free 💥</h3>
+    <p>Walk in with this page or WhatsApp us — train once, then decide.</p>
+    <a href="https://wa.me/918657503395?text=Hi%2C%20I%20saw%20the%20website%20preview%20%E2%80%94%20booking%20my%20free%20trial">Claim free trial</a>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2 class="t">Find <em>us</em></h2>
+  <p class="s">Plot No 1, Hirji Estate, behind Excom House, Saki Vihar Road, Sakinaka — 5 min from the metro.</p>
+  <div class="contact-grid">
+    <div>
+      <div class="cbox" style="margin-bottom:16px"><h3>📞 MEMBERSHIP DESK</h3><p><a href="tel:+918657503395">86575 03395</a><br>WhatsApp: <a href="https://wa.me/918657503395">86575 03395</a><br>Instagram: @fitnesshubsakinaka</p></div>
+      <div class="cbox"><h3>🕐 HOURS</h3><p>Mon–Sat: 6 am – 11 pm<br>Sunday: 8 am – 2 pm</p></div>
+    </div>
+    <iframe loading="lazy" src="https://www.google.com/maps?q=Hirji+Estate+Saki+Vihar+Road+Sakinaka+Mumbai&output=embed"></iframe>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  © Fitness Hub, Sakinaka ·
+  <span style="opacity:.85">Design preview by <a href="../../" style="color:#fdba74">Anurag Adhikari</a> (Hello@anurag.studio) — prepared for Fitness Hub. Not the official website.</span>
+</div></footer>
+<a class="fab" href="https://wa.me/918657503395" aria-label="WhatsApp">💬</a>
+</body>
+</html>
