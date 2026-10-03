@@ -55,11 +55,16 @@
   const ago = ts => { const m = Math.max(0, Math.round((Date.now() - ts) / 60000)); return m < 1 ? 'just now' : m < 60 ? m + ' min ago' : Math.floor(m / 60) + ' h ago'; };
 
   /* Flatten compact menu rows [name, price, veg, desc, tag, protein] into objects with stable ids. */
+  /* Per-table QR token: the printed QR carries ?t=<table>&k=<token>, so editing the URL to another
+     table number doesn't work. Same FNV-1a hash as build.py. Live version: token checked server side. */
+  const tok = t => { let h = 0x811c9dc5; for (const ch of C.slug + ':' + t + ':' + (C.salt || '')) { h ^= ch.charCodeAt(0); h = Math.imul(h, 0x01000193) >>> 0; } return h.toString(36).slice(0, 6); };
+  const tableUrl = (base, t) => base + '?t=' + t + '&k=' + tok(t);
+
   const items = [];
   C.sections.forEach((s, si) => s.items.forEach((r, ii) => items.push({
     id: si + '-' + ii, sec: si, n: r[0], p: r[1], veg: !!r[2], d: r[3] || '', tag: r[4] || '', pro: r[5] || 0, order: items.length,
   })));
 
-  window.WW = { C, $, $$, inr, esc, store: Store(C.slug), applyTheme, qrSvg, vegDot, ago, items };
+  window.WW = { C, $, $$, inr, esc, store: Store(C.slug), applyTheme, qrSvg, vegDot, ago, items, tok, tableUrl };
   applyTheme();
 })();

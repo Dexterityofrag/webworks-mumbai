@@ -66,3 +66,5 @@ button,select{font:inherit;cursor:pointer}
 .rnd{font-size:11px;font-weight:700;color:#777;background:#f1efe9;border-radius:6px;padding:3px 6px}
 .ord li em{margin-left:auto;font-style:normal;font-size:11.5px;color:#888}
 .tcard{width:240px}.ta .mini{white-space:nowrap}
+.call.security{background:#ffd6d6}.tcard{width:250px}
+.ta{flex-wrap:wrap}

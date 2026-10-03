@@ -14,22 +14,23 @@
   $('#reset').onclick = () => { if (confirm('Clear all demo tables and orders?')) { store.reset(); seed(); } };
 
   const tbill = (d, t, s) => {
-    const os = d.orders.filter(o => o.table === t && o.code === s.code), total = os.reduce((a, o) => a + o.total, 0);
+    const os = d.orders.filter(o => o.table === t && o.sid === s.sid), total = os.reduce((a, o) => a + o.total, 0);
     const paid = (s.payments || []).reduce((a, p) => a + p.amt, 0);
     return { total, paid, due: Math.max(0, total - paid), rounds: os.length };
   };
 
   /* seed a believable rush so the screen is never empty on first open */
   function seed() {
-    const d = store.read(); if (d.orders.length) return;
+    const d = store.read(); if (d.orders.length || Object.keys(d.sessions || {}).length || d.calls.length) return;
     const pick = (k, by) => { const it = items[(k * 7 + 3) % items.length]; return { n: it.n, q: 1 + (k % 2), p: it.p, veg: it.veg, by }; };
     const sessions = {}, orders = [];
     let no = 0;
     const tableS = (t, code, people, rounds, paidAll) => {
-      sessions[t] = { code, ts: Date.now() - 40 * 60000, people, cart: {}, payments: [] };
+      const sid = 'seed' + t, ppl = people.map((n, i) => ({ id: sid + i, name: n }));
+      sessions[t] = { sid, code, ts: Date.now() - 40 * 60000, last: Date.now() - 60000, hostId: ppl[0].id, people: ppl, cart: {}, payments: [], fails: [] };
       rounds.forEach(([ks, status, mins, note], r) => {
         const its = ks.map((k, i) => pick(k, [people[i % people.length]])), sub = its.reduce((s, i) => s + i.p * i.q, 0), tax = Math.round(sub * gst / 100);
-        orders.push({ id: 'seed' + (++no), no, table: t, code, round: r + 1, items: its, by: [...new Set(its.flatMap(i => i.by))], note: note || '', sub, tax, total: sub + tax, status, ts: Date.now() - mins * 60000 });
+        orders.push({ id: 'seed' + (++no), no, table: t, sid, round: r + 1, items: its, by: [...new Set(its.flatMap(i => i.by))], note: note || '', sub, tax, total: sub + tax, status, ts: Date.now() - mins * 60000 });
       });
       if (paidAll) sessions[t].payments.push({ by: people[0], amt: orders.filter(o => o.table === t).reduce((a, o) => a + o.total, 0), ts: Date.now() });
     };
@@ -47,7 +48,7 @@
   }
 
   function card(o, d) {
-    const nx = next[o.status], s = (d.sessions || {})[o.table], b = s && s.code === o.code ? tbill(d, o.table, s) : null;
+    const nx = next[o.status], s = (d.sessions || {})[o.table], b = s && s.sid === o.sid ? tbill(d, o.table, s) : null;
     return `<article class="ord ${b && b.due ? 'unpaid' : ''}" data-id="${o.id}">
       <header><span class="tno">T${esc(o.table)}</span><b>#${o.no}</b><small class="rnd">Round ${o.round || 1}</small><time>${ago(o.ts)}</time></header>
       <ul>${o.items.map(i => `<li>${vegDot(i.veg)}<span>${i.q} × ${esc(i.n)}</span>${i.by ? `<em>${esc(i.by.join(', '))}</em>` : ''}</li>`).join('')}</ul>
@@ -66,10 +67,10 @@
       ? Object.entries(ses).sort((a, b) => a[0] - b[0]).map(([t, s]) => {
           const b = tbill(d, t, s), inCart = Object.values(s.cart || {}).reduce((a, l) => a + l.q, 0);
           return `<div class="tcard" data-t="${t}"><div class="th"><span class="tno">T${esc(t)}</span><span class="code">${s.code}</span></div>
-            <p>${s.people.map(esc).join(', ')}</p>
+            <p>${s.people.map(p => esc(p.name) + (p.id === s.hostId ? ' ★' : '')).join(', ')}</p>${(s.fails || []).filter(x => Date.now() - x < 600000).length ? `<p class="due"><b>${(s.fails || []).filter(x => Date.now() - x < 600000).length} wrong code tries</b></p>` : ''}
             <p class="tb">${b.rounds} round${b.rounds === 1 ? '' : 's'} · ${inr(b.total)}${inCart ? ` · ${inCart} in cart` : ''}</p>
             <p class="${b.due ? 'due' : 'ok'}"><b>${b.due ? inr(b.due) + ' due' : b.total ? 'Paid' : 'Browsing'}</b></p>
-            <div class="ta">${b.due ? `<button class="mini" data-t-act="paid">Cash / card paid</button>` : ''}<button class="mini" data-t-act="close">Close table</button></div></div>`;
+            <div class="ta">${b.due ? `<button class="mini" data-t-act="paid">Cash / card paid</button>` : ''}<button class="mini" data-t-act="recode">New code</button><button class="mini" data-t-act="close">Close</button></div></div>`;
         }).join('')
       : '<span class="quiet">No tables open. A table opens when the first guest scans and starts it.</span>';
 
@@ -82,7 +83,7 @@
 
     const calls = d.calls.slice(-6).reverse();
     $('#calls').innerHTML = calls.length
-      ? calls.map((c, i) => `<button class="call ${c.type}" data-i="${d.calls.length - 1 - i}"><b>T${esc(c.table)}</b> ${c.type === 'bill' ? 'wants the bill' : 'is calling a server'} · ${ago(c.ts)} <u>Done</u></button>`).join('')
+      ? calls.map((c, i) => `<button class="call ${c.type}" data-i="${d.calls.length - 1 - i}"><b>T${esc(c.table)}</b> ${c.type === 'bill' ? 'wants the bill' : c.type === 'security' ? 'had 5 wrong code tries. Joining paused, please check the table' : 'is calling a server'} · ${ago(c.ts)} <u>Done</u></button>`).join('')
       : '<span class="quiet">No table calls right now</span>';
 
     const rev = d.orders.reduce((s, o) => s + o.total, 0);
@@ -102,6 +103,7 @@
     store.update(d => {
       const s = d.sessions[t], bl = tbill(d, t, s);
       if (b.dataset.tAct === 'paid') s.payments.push({ by: 'Counter', amt: bl.due, ts: Date.now() });
+      else if (b.dataset.tAct === 'recode') { let c; do { c = String(1000 + Math.floor(Math.random() * 9000)); } while (c === s.code); s.code = c; s.fails = []; }
       else if (!bl.due || confirm(`Table ${t} still owes ${inr(bl.due)}. Close anyway?`)) delete d.sessions[t];
     });
   });
