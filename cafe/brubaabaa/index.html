@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>bru baabaa café · Menu & order from your table</title>
+<meta name="description" content="Specialty coffee, soulful Lebanese plates and a good seat to work from.">
+<meta name="theme-color" content="#FAF5EF">
+<meta property="og:title" content="bru baabaa café · Scan, order, pay from your table">
+<meta property="og:description" content="A preview of bru baabaa café's QR menu with table ordering and UPI payment.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage%20Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM%20Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_engine/base.css?v=2610040041">
+<style>:root{--bg:#FAF5EF;--surface:#FFFFFF;--ink:#171515;--muted:#6E6660;--accent:#B21E2B;--accent2:#171515;--line:#ECE1D7;--line-strong:#D9C8B9;--on-accent:#fff;--on-accent2:#fff;--f-display:'Bricolage Grotesque',sans-serif;--f-body:'DM Sans',sans-serif;--r:18px;--motif-o:1;--h1-w:800;--h1-ls:-.045em;--r-btn:99px;--r-bar:99px}.hero{color:#fff}.hero::before{-webkit-mask:none;mask:none}.hero .eyebrow{color:#F7D0D3}.hero .tagline{color:#FBE3E5}.hero h1{text-transform:lowercase;font-size:clamp(52px,15vw,92px)}.hero h1 .dot{color:#F0A9AE}.hero .tablepill,.service button,#track{background:#fff;color:#171515}.hero .meta{color:#FBE3E5}.divider{height:10px;background:#171515}.item{box-shadow:0 1px 0 #ECE1D7}.add{border-radius:99px}</style>
+</head>
+<body data-layout="cards">
+<div class="ribbon"><span>Preview</span><select id="tableSel" aria-label="Switch table"></select><a href="kds.html" target="_blank">Kitchen ↗</a><a href="tables.html" target="_blank">QR cards ↗</a></div>
+<header class="hero"><div class="wrap">
+  <span class="eyebrow">29th Road · Bandra West</span>
+  <h1>bru baabaa<span class="dot">.</span></h1>
+  <p class="tagline">Specialty coffee, soulful Lebanese plates and a good seat to work from.</p>
+  <div class="tablepill">You're at table <b id="tableNo">4</b></div>
+  <div class="meta"><span>Open daily till 12:30 am</span><span>29th Rd, next to Sigdi</span><span>4.8 ★ on Google</span></div>
+  <div id="track" hidden></div>
+  <div class="service"><button id="callWaiter">Call a server</button><button id="callBill">Ask for the bill</button></div>
+</div></header>
+<div class="divider"></div>
+<div class="tools"><div class="wrap">
+  <div class="row">
+    <label class="search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="search" placeholder="Search matcha, cold brew, hummus…" aria-label="Search the menu"></label>
+    <label class="vegt"><input id="veg" type="checkbox"> Veg</label>
+  </div>
+  <div class="row" style="margin-top:8px"><select id="sort" aria-label="Sort"><option value="rec">Recommended</option><option value="lo">Price: low to high</option><option value="hi">Price: high to low</option><option value="az">Name: A to Z</option></select><nav id="chips" style="flex:1;min-width:0"></nav></div>
+</div></div>
+<main class="wrap" id="menu"></main>
+<footer class="foot"><div class="wrap">
+  <h5>bru baabaa café</h5><p>Plot 160, 29th Rd, next to Sigdi restaurant, TPS III, Bandra West 400050</p><p>Open daily till 12:30 am</p><p><a href="tel:+91 79779 96573">+91 79779 96573</a> · <a href="https://instagram.com/brubaabaacafe">@brubaabaacafe</a></p>
+  <p class="credit">Prices shown are indicative for this preview. Designed by <a href="https://anurag.studio">Anurag Studio</a>.</p>
+</div></footer>
+<button id="bar"><span><span id="barN"></span><small>Table <span id="barTbl">4</span> · tap to review</small></span><span>View order · <span id="barT"></span></span></button>
+<div id="sheet"><div id="sheetBody"></div></div>
+<div id="toast" role="status"></div>
+<script>window.CAFE={"slug":"brubaabaa","name":"bru baabaa café","tables":8,"upi":"brubaabaa@upi","demo":true,"sections":[{"name":"Espresso & Manual Brew","items":[["Flat White",220,1,"Double ristretto, silky milk","House fave"],["Spanish Latte",240,1,"Condensed milk, espresso, a little salt"],["Pour Over",260,1,"Single origin, brewed to order. Ask for today's bean"],["Classic Affogato",220,1,"Vanilla gelato drowned in espresso"],["Matcha Affogato",260,1,"Ceremonial matcha over vanilla gelato"]]},{"name":"Cold & Iced","items":[["Vietnamese Iced Coffee",240,1,"Dark roast, condensed milk, lots of ice","Bestseller"],["Iced Americano",190,1,""],["Cold Brew Passion Spritzer",260,1,"18 hour cold brew, passion fruit, soda"],["Dark Knight",260,1,"Cold brew with dark chocolate and cream"],["Mango Matcha Iced Latte",280,1,"Alphonso purée, matcha, oat or dairy"],["Strawberry Matcha Iced Latte",280,1,""]]},{"name":"Teas, Coolers & Shakes","items":[["Lemongrass & Ginger Tea",160,1,"Hot, fresh, sharp"],["Lemon Iced Tea",170,1,""],["Strawberry Mojito",210,1,"Mint, lime, crushed strawberries"],["Black Currant Mojito",210,1,""],["Oreo Shake",240,1,""]]},{"name":"Lebanese Plates","note":"Pita baked in house","items":[["Classic Hummus & Pita",280,1,"Tahini, olive oil, paprika, warm pita","Bestseller"],["Chicken Shawarma Plate",360,0,"Garlic toum, pickles, fries, pita"],["Falafel Plate",320,1,"Herby falafel, tahini, tabbouleh"],["Fattoush Salad",290,1,"Crisp pita, sumac, pomegranate"]]},{"name":"Toasts, Croissants & Bites","items":[["Chicken Croissant",260,0,"Butter croissant, herbed chicken, cheese"],["Cheese Chilli Toast",190,1,"Sourdough, cheddar, green chilli"],["Avocado Toast",290,1,"Sourdough, chilli flakes, lime"],["Peri Peri Fries",170,1,""],["Loaded Nachos",240,1,"Salsa, jalapeños, cheese sauce"]]}],"gst":5,"features":{},"theme":{"motif":"quilt","motif2":"quilt","c":{"bg":"#FAF5EF","surface":"#FFFFFF","ink":"#171515","muted":"#6E6660","accent":"#B21E2B","accent2":"#171515","line":"#ECE1D7","lineStrong":"#D9C8B9","motifA":"#B21E2B","motifB":"#F0A9AE"}}};</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<script src="../_engine/common.js?v=2610040041"></script>
+<script src="../_engine/app.js?v=2610040041"></script>
+</body>
+</html>

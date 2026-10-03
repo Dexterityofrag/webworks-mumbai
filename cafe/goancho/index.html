@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Cafe Goancho · Menu & order from your table</title>
+<meta name="description" content="Inspired by Goa, rooted in Bandra. Poee sandwiches, xacuti and rawa fry till 1:30 am.">
+<meta name="theme-color" content="#FBF6EC">
+<meta property="og:title" content="Cafe Goancho · Scan, order, pay from your table">
+<meta property="og:description" content="A preview of Cafe Goancho's QR menu with table ordering and UPI payment.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,800&family=Work%20Sans:wght@400;500;600;700&family=Tiro%20Devanagari%20Marathi&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_engine/base.css?v=2610040041">
+<style>:root{--bg:#FBF6EC;--surface:#FFFDF8;--ink:#14244A;--muted:#5B6684;--accent:#1F4E9C;--accent2:#F2B632;--line:#E6DCC8;--line-strong:#CDBF9F;--on-accent:#fff;--on-accent2:#14244A;--f-display:'Fraunces',serif;--f-body:'Work Sans',sans-serif;--r:14px;--f-alt:'Tiro Devanagari Marathi',serif;--motif-o:.16;--h1-w:800}.hero h1{color:var(--accent)}.hero .alt{font-size:26px;color:#C2562B}.divider{height:26px;border-block:3px solid var(--accent)}.tag{border-radius:99px}</style>
+</head>
+<body data-layout="poster">
+<div class="ribbon"><span>Preview</span><select id="tableSel" aria-label="Switch table"></select><a href="kds.html" target="_blank">Kitchen ↗</a><a href="tables.html" target="_blank">QR cards ↗</a></div>
+<header class="hero"><div class="wrap">
+  <span class="eyebrow">Pali Hill · Bandra West</span>
+  <h1><span class="alt">गोंयचो</span>Cafe Goancho</h1>
+  <p class="tagline">Inspired by Goa, rooted in Bandra. Poee sandwiches, xacuti and rawa fry till 1:30 am.</p>
+  <div class="tablepill">You're at table <b id="tableNo">4</b></div>
+  <div class="meta"><span>12:30 pm to 1:30 am</span><span>Pali Market, Pali Hill</span><span>4.7 ★ on Google</span></div>
+  <div id="track" hidden></div>
+  <div class="service"><button id="callWaiter">Call a server</button><button id="callBill">Ask for the bill</button></div>
+</div></header>
+<div class="divider"></div>
+<div class="tools"><div class="wrap">
+  <div class="row">
+    <label class="search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="search" placeholder="Search poee, xacuti, rawa fry…" aria-label="Search the menu"></label>
+    <label class="vegt"><input id="veg" type="checkbox"> Veg</label>
+  </div>
+  <div class="row" style="margin-top:8px"><select id="sort" aria-label="Sort"><option value="rec">Recommended</option><option value="lo">Price: low to high</option><option value="hi">Price: high to low</option><option value="az">Name: A to Z</option></select><nav id="chips" style="flex:1;min-width:0"></nav></div>
+</div></div>
+<main class="wrap" id="menu"></main>
+<footer class="foot"><div class="wrap">
+  <h5>Cafe Goancho</h5><p>Shop 6, Grain Store, Plot 56A, Pali Hill Rd, near Vegetable Market, Bandra West 400050</p><p>12:30 pm to 1:30 am</p><p><a href="tel:+91 78430 66255">+91 78430 66255</a> · <a href="https://instagram.com/cafegoanchobandra">@cafegoanchobandra</a></p>
+  <p class="credit">Prices shown are indicative for this preview. Designed by <a href="https://anurag.studio">Anurag Studio</a>.</p>
+</div></footer>
+<button id="bar"><span><span id="barN"></span><small>Table <span id="barTbl">4</span> · tap to review</small></span><span>View order · <span id="barT"></span></span></button>
+<div id="sheet"><div id="sheetBody"></div></div>
+<div id="toast" role="status"></div>
+<script>window.CAFE={"slug":"goancho","name":"Cafe Goancho","tables":10,"upi":"cafegoancho@upi","demo":true,"sections":[{"name":"Poee Sandwiches","note":"Goan pocket bread, baked soft","items":[["Mutton Ragout Poee",320,0,"Slow cooked Goan mutton ragout, onions, house chilli mayo","Bestseller"],["Prawn & Crab Poee",390,0,"Prawn and crab tossed in garlic aioli, crunchy salad","Chef's pick"],["Goan Chorizo Poee",310,0,"Spicy Goa sausage, fried onions, pickled chilli"],["Chicken Cafreal Poee",290,0,"Green masala chicken, lime, shredded lettuce"],["Avocado & Grilled Veggies Poee",280,1,"Charred veggies, avocado, tzatziki"]]},{"name":"Sourdough Sandwiches","items":[["Avocado Bombay Masala Sandwich",300,1,"Bombay sandwich masala, smashed avocado, green chutney","Bestseller"],["Chicken Xacuti Melt",330,0,"Xacuti chicken, cheese, caramelised onion"],["Mushroom & Cheese Toastie",270,1,"Garlic mushrooms, three cheese blend"]]},{"name":"Goan Classics","note":"Served with rice or poee","items":[["Prawns Xacuti",520,0,"Roasted coconut and poppy seed gravy, Goan red rice","Must try"],["Chicken Cafreal",420,0,"Green masala, potato wedges, poee"],["Goan Fish Curry Rice",480,0,"Coconut and kokum curry, catch of the day, rice"],["Veg Xacuti",360,1,"Seasonal vegetables in xacuti masala, poee"],["Goan Fish Thali",550,0,"Fish curry, rawa fry, sukhem, rice, sol kadhi"]]},{"name":"Fry & Small Plates","items":[["Chonak Rawa Fry",560,0,"Whole snapper, semolina crust, recheado masala","Bestseller"],["Prawns Fry",450,0,"Butterflied prawns, rawa crust, lime"],["Chorizo Chilli Fry",380,0,"Goa sausage fry with onions and capsicum"],["Recheado Masala Fries",180,1,"Hand cut fries, tangy red masala dust"]]},{"name":"Desserts","items":[["Bebinca",220,1,"Layered Goan coconut cake, served warm"],["Serradura",240,1,"Sawdust pudding, cream and Marie biscuit"],["Caramel Custard",180,1,"Creamy, wobbly, old school"]]},{"name":"Drinks","items":[["Kokum Sherbet",120,1,"Chilled, sweet and tangy"],["Sol Kadhi",130,1,"Kokum and coconut milk"],["Goan Lime Soda",110,1,"Sweet, salted or mixed"],["Cold Coffee",160,1,""]]},{"name":"Party Packs","note":"For 4 to 6","items":[["Poee Party Box",1450,0,"Six poee sandwiches of your choice, fries, dips"],["Goan Feast Pack",1890,0,"Xacuti, cafreal, rawa fry, rice and poee"]]}],"gst":5,"features":{},"theme":{"motif":"azulejo","motif2":"azulejo","c":{"bg":"#FBF6EC","surface":"#FFFDF8","ink":"#14244A","muted":"#5B6684","accent":"#1F4E9C","accent2":"#F2B632","onAccent2":"#14244A","line":"#E6DCC8","lineStrong":"#CDBF9F","motifBg":"#FBF6EC"}}};</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<script src="../_engine/common.js?v=2610040041"></script>
+<script src="../_engine/app.js?v=2610040041"></script>
+</body>
+</html>

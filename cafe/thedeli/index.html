@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>The Deli, Bandra · Menu & order from your table</title>
+<meta name="description" content="The finest dessert corner off Carter Road. Fresh bakes, all day breakfast, and nibbles for your dog too.">
+<meta name="theme-color" content="#F3F0E9">
+<meta property="og:title" content="The Deli, Bandra · Scan, order, pay from your table">
+<meta property="og:description" content="A preview of The Deli, Bandra's QR menu with table ordering and UPI payment.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_engine/base.css?v=2610040041">
+<style>:root{--bg:#F3F0E9;--surface:#FFFFFF;--ink:#26292C;--muted:#6B7068;--accent:#5E7B5B;--accent2:#B8975A;--line:#DDD8CC;--line-strong:#B9B3A3;--on-accent:#fff;--on-accent2:#fff;--f-display:'Cormorant',serif;--f-body:'Manrope',sans-serif;--r:4px;--motif-o:.55;--h1-w:600;--h1-ls:.08em;--h3-w:600;--h3-style:normal;--r-btn:4px;--r-bar:4px}.hero{background:#2B2F33;color:#F3F0E9}.hero h1{color:#D9BE85;font-size:clamp(60px,18vw,104px)}.hero h1 small{display:block;font:italic 500 26px/1 var(--f-display);letter-spacing:.02em;color:#C9CDC4;margin-bottom:-4px}.hero .tagline,.hero .meta{color:#B9BDB4}.hero .eyebrow{color:#D9BE85}.hero .tablepill,.service button,#track{background:#353A3F;border-color:#4A5056;color:#F3F0E9}.tablepill b{color:#D9BE85}.service button{border-style:solid}.divider{height:6px;background:#5E7B5B}.sec-h h3{text-transform:uppercase;letter-spacing:.12em;font-size:24px!important}.ribbon{background:#5E7B5B}[data-layout=editorial] .sec-h::after{background:#B8975A;height:2px;width:44px;opacity:1}</style>
+</head>
+<body data-layout="editorial">
+<div class="ribbon"><span>Preview</span><select id="tableSel" aria-label="Switch table"></select><a href="kds.html" target="_blank">Kitchen ↗</a><a href="tables.html" target="_blank">QR cards ↗</a></div>
+<header class="hero"><div class="wrap">
+  <span class="eyebrow">Café · Kitchen · off Carter Road</span>
+  <h1><small>the</small>DELI</h1>
+  <p class="tagline">The finest dessert corner off Carter Road. Fresh bakes, all day breakfast, and nibbles for your dog too.</p>
+  <div class="tablepill">You're at table <b id="tableNo">4</b></div>
+  <div class="meta"><span>Opens 8 am</span><span>Anand Villa, Pali Mala Rd</span><span>4.5 ★ on Google</span></div>
+  <div id="track" hidden></div>
+  <div class="service"><button id="callWaiter">Call a server</button><button id="callBill">Ask for the bill</button></div>
+</div></header>
+<div class="divider"></div>
+<div class="tools"><div class="wrap">
+  <div class="row">
+    <label class="search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="search" placeholder="Search eclairs, bagels, eggs…" aria-label="Search the menu"></label>
+    <label class="vegt"><input id="veg" type="checkbox"> Veg</label>
+  </div>
+  <div class="row" style="margin-top:8px"><select id="sort" aria-label="Sort"><option value="rec">Recommended</option><option value="lo">Price: low to high</option><option value="hi">Price: high to low</option><option value="az">Name: A to Z</option></select><nav id="chips" style="flex:1;min-width:0"></nav></div>
+</div></div>
+<main class="wrap" id="menu"></main>
+<footer class="foot"><div class="wrap">
+  <h5>The Deli, Bandra</h5><p>Anand Villa 30, Pali Mala Rd, off Carter Road, Bandra West 400050</p><p>Opens 8 am</p><p><a href="tel:+91 98201 32901">+91 98201 32901</a></p>
+  <p class="credit">Prices shown are indicative for this preview. Designed by <a href="https://anurag.studio">Anurag Studio</a>.</p>
+</div></footer>
+<button id="bar"><span><span id="barN"></span><small>Table <span id="barTbl">4</span> · tap to review</small></span><span>View order · <span id="barT"></span></span></button>
+<div id="sheet"><div id="sheetBody"></div></div>
+<div id="toast" role="status"></div>
+<script>window.CAFE={"slug":"thedeli","name":"The Deli, Bandra","tables":8,"upi":"thedeli@upi","demo":true,"sections":[{"name":"The Deli Specials","items":[["Turkish Eggs, the Deli Way",395,1,"Poached eggs, garlic yoghurt, chilli butter, sourdough","Signature"],["Special Eggs Benedict",425,0,"Classic ham, hollandaise, toasted muffin"],["Goan Chorizo Pav",345,0,"Spicy chouriço, soft pav, onions"],["Tofu Akuri",325,1,"Parsi style spiced scramble, made with tofu"]]},{"name":"Bakery & Desserts","note":"Baked fresh every morning","items":[["Espresso Chocolate Eclair",225,1,"Choux, espresso cream, dark glaze","Bestseller"],["Orange Cake Slice",195,1,""],["Lemon Tart",245,1,""],["Butter Croissant",175,1,""]]},{"name":"Bagels & Sandwiches","items":[["Smoked Salmon Bagel",545,0,"Cream cheese, capers, red onion, dill","Bestseller"],["Chicken Pesto Sandwich",395,0,""],["Caprese Focaccia",365,1,""]]},{"name":"Cracker Crust Pizzas","items":[["Classic Margherita",445,1,"Thin, crisp, San Marzano tomato"],["Naked Pizza",395,1,"Olive oil, garlic, rocket, parmesan"],["Pepperoni",545,0,""]]},{"name":"Salads, Bowls & Mains","items":[["Charred Corn & Kale Salad",395,1,"Feta, lime, toasted seeds"],["Spicy Smoked Salmon Bowl",595,0,"Sushi rice, avocado, sriracha mayo"],["Lasagne Verde",495,1,"Spinach pasta, ricotta, béchamel"],["Lamb Stew",625,0,"Slow cooked, with crusty bread"],["Sweet Potato Fries",245,1,""]]},{"name":"Pet Nibbles","note":"For the good boys and girls","items":[["Peanut Butter Pup Cookies",175,1,"Dog safe, no sugar, no salt"],["Chicken Jerky Bites",225,0,"Oven dried, single ingredient"]]},{"name":"Brews & Signature Sips","items":[["Cappuccino",215,1,""],["Cold Matcha",275,1,"Ceremonial matcha, oat milk","Bestseller"],["Classic Cold Coffee",245,1,""],["Salted Caramel Shake",295,1,""],["Kokum Basil Refresher",195,1,""]]}],"gst":5,"features":{},"theme":{"motif":"grid","motif2":"grid","c":{"bg":"#F3F0E9","surface":"#FFFFFF","ink":"#26292C","muted":"#6B7068","accent":"#5E7B5B","accent2":"#B8975A","line":"#DDD8CC","lineStrong":"#B9B3A3","motifA":"#B8975A","motifBg":"#2B2F33"}}};</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<script src="../_engine/common.js?v=2610040041"></script>
+<script src="../_engine/app.js?v=2610040041"></script>
+</body>
+</html>

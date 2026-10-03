@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cafe Goancho · Kitchen screen</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,800&family=Work%20Sans:wght@400;500;600;700&family=Tiro%20Devanagari%20Marathi&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_engine/staff.css?v=2610040041">
+<style>:root{--bg:#FBF6EC;--surface:#FFFDF8;--ink:#14244A;--muted:#5B6684;--accent:#1F4E9C;--accent2:#F2B632;--line:#E6DCC8;--line-strong:#CDBF9F;--on-accent:#fff;--on-accent2:#14244A;--f-display:'Fraunces',serif;--f-body:'Work Sans',sans-serif;--r:14px;--f-alt:'Tiro Devanagari Marathi',serif;--motif-o:.16;--h1-w:800}</style>
+</head>
+<body>
+<div class="top"><h1>Cafe Goancho<small>Live orders</small></h1><span class="sp"></span>
+  <select id="ft"><option value="all">All tables</option></select>
+  <select id="fs"><option value="old">Oldest first</option><option value="new">Newest first</option><option value="table">By table number</option></select>
+  <a href="./" target="_blank">Guest menu</a><button id="reset">Reset demo</button></div>
+<div id="stats"></div>
+<div id="calls"></div>
+<div id="board"></div>
+<p class="hint">Preview: place an order from the guest menu in another tab and it lands here instantly with a chime. In the live version this screen runs on the counter tablet or any staff phone.</p>
+<script>window.CAFE={"slug":"goancho","name":"Cafe Goancho","tables":10,"upi":"cafegoancho@upi","demo":true,"sections":[{"name":"Poee Sandwiches","note":"Goan pocket bread, baked soft","items":[["Mutton Ragout Poee",320,0,"Slow cooked Goan mutton ragout, onions, house chilli mayo","Bestseller"],["Prawn & Crab Poee",390,0,"Prawn and crab tossed in garlic aioli, crunchy salad","Chef's pick"],["Goan Chorizo Poee",310,0,"Spicy Goa sausage, fried onions, pickled chilli"],["Chicken Cafreal Poee",290,0,"Green masala chicken, lime, shredded lettuce"],["Avocado & Grilled Veggies Poee",280,1,"Charred veggies, avocado, tzatziki"]]},{"name":"Sourdough Sandwiches","items":[["Avocado Bombay Masala Sandwich",300,1,"Bombay sandwich masala, smashed avocado, green chutney","Bestseller"],["Chicken Xacuti Melt",330,0,"Xacuti chicken, cheese, caramelised onion"],["Mushroom & Cheese Toastie",270,1,"Garlic mushrooms, three cheese blend"]]},{"name":"Goan Classics","note":"Served with rice or poee","items":[["Prawns Xacuti",520,0,"Roasted coconut and poppy seed gravy, Goan red rice","Must try"],["Chicken Cafreal",420,0,"Green masala, potato wedges, poee"],["Goan Fish Curry Rice",480,0,"Coconut and kokum curry, catch of the day, rice"],["Veg Xacuti",360,1,"Seasonal vegetables in xacuti masala, poee"],["Goan Fish Thali",550,0,"Fish curry, rawa fry, sukhem, rice, sol kadhi"]]},{"name":"Fry & Small Plates","items":[["Chonak Rawa Fry",560,0,"Whole snapper, semolina crust, recheado masala","Bestseller"],["Prawns Fry",450,0,"Butterflied prawns, rawa crust, lime"],["Chorizo Chilli Fry",380,0,"Goa sausage fry with onions and capsicum"],["Recheado Masala Fries",180,1,"Hand cut fries, tangy red masala dust"]]},{"name":"Desserts","items":[["Bebinca",220,1,"Layered Goan coconut cake, served warm"],["Serradura",240,1,"Sawdust pudding, cream and Marie biscuit"],["Caramel Custard",180,1,"Creamy, wobbly, old school"]]},{"name":"Drinks","items":[["Kokum Sherbet",120,1,"Chilled, sweet and tangy"],["Sol Kadhi",130,1,"Kokum and coconut milk"],["Goan Lime Soda",110,1,"Sweet, salted or mixed"],["Cold Coffee",160,1,""]]},{"name":"Party Packs","note":"For 4 to 6","items":[["Poee Party Box",1450,0,"Six poee sandwiches of your choice, fries, dips"],["Goan Feast Pack",1890,0,"Xacuti, cafreal, rawa fry, rice and poee"]]}],"gst":5,"features":{},"theme":{"motif":"azulejo","motif2":"azulejo","c":{"bg":"#FBF6EC","surface":"#FFFDF8","ink":"#14244A","muted":"#5B6684","accent":"#1F4E9C","accent2":"#F2B632","onAccent2":"#14244A","line":"#E6DCC8","lineStrong":"#CDBF9F","motifBg":"#FBF6EC"}}};</script>
+<script src="../_engine/common.js?v=2610040041"></script>
+<script src="../_engine/kds.js?v=2610040041"></script>
+</body>
+</html>

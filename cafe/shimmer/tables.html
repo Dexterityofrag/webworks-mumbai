@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Shimmer Cafe · Table QR cards</title>
+<link href="https://fonts.googleapis.com/css2?family=Pinyon%20Script&family=Cormorant%20Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_engine/staff.css?v=2610040041">
+<style>:root{--bg:#130F0B;--surface:#1D1712;--ink:#F2E7D5;--muted:#B3A289;--accent:#D6AA5B;--accent2:#7B3333;--line:#3A2F24;--line-strong:#5A4A38;--on-accent:#130F0B;--on-accent2:#fff;--f-display:'Cormorant Garamond',serif;--f-body:'Jost',sans-serif;--r:6px;--f-alt:'Pinyon Script',cursive;--motif-o:.9;--h3-w:400;--h3-ls:.04em;--r-btn:4px;--r-bar:6px}</style>
+</head>
+<body>
+<div class="top"><h1>Shimmer Cafe<small>Table QR cards · print ready</small></h1><span class="sp"></span><button onclick="print()">Print</button></div>
+<div class="tents" id="tents"></div>
+<script>window.CAFE={"slug":"shimmer","name":"Shimmer Cafe","tables":16,"upi":"shimmercafe@upi","demo":true,"sections":[{"name":"Open Toasts","items":[["Garden Beet Hummus Tartine",395,1,"Beetroot hummus, feta, toasted seeds, sourdough","Signature"],["Mushroom & Truffle Toast",425,1,"Wild mushrooms, truffle oil, parmesan"],["Smoked Chicken & Avocado Toast",445,0,""]]},{"name":"Saar's Specials","items":[["Thai Red Curry",545,1,"Vegetables, jasmine rice. Add chicken +90"],["Paneer with Vegetables",495,1,"Charred paneer, herbed butter, sautéed greens"],["Cheesy Burrito with Side Salad",475,1,"Beans, rice, cheese, house salsa","Bestseller"]]},{"name":"Sandwiches","items":[["Caprese Sandwich",395,1,"Mozzarella, tomato, basil pesto, focaccia"],["Chicken Club",475,0,"Triple decker, fries"],["Toasted Sourdough & Butter",195,1,""]]},{"name":"Appetisers & Pasta","items":[["Peri Peri Fries",245,1,""],["Chicken Wings, Honey Chilli",425,0,""],["Penne Arrabbiata",445,1,"Slow cooked tomato, chilli, basil"],["Spaghetti Aglio Olio",425,1,"Add prawns +150"],["Creamy Pesto Chicken Pasta",525,0,""]]},{"name":"Desserts","items":[["Lotus Biscoff Cheesecake",375,1,"","Bestseller"],["Warm Chocolate Brownie",325,1,"With vanilla gelato"]]},{"name":"Smoothies & Shakes","items":[["Mixed Berry Smoothie",325,1,"Berries, yoghurt, honey","Bestseller"],["Mango Smoothie",295,1,""],["Nutella Shake",325,1,""]]},{"name":"Coffee, Tea & Coolers","items":[["Cappuccino",225,1,""],["Affogato",275,1,""],["Iced Spanish Latte",295,1,""],["Masala Chai",145,1,""],["Watermelon Mint Cooler",245,1,""]]}],"gst":5,"features":{},"theme":{"motif":"glow","motif2":"glow","c":{"bg":"#130F0B","surface":"#1D1712","ink":"#F2E7D5","muted":"#B3A289","accent":"#D6AA5B","accent2":"#7B3333","onAccent":"#130F0B","line":"#3A2F24","lineStrong":"#5A4A38","motifBg":"#130F0B"}}};</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<script src="../_engine/common.js?v=2610040041"></script>
+<script>
+(function(){const {C,$,qrSvg,esc}=WW;const base=location.href.replace(/tables\.html.*$/,'');let h='';
+for(let i=1;i<=C.tables;i++)h+=`<div class="tent"><div class="band"></div><div class="tb"><small>Table</small><span class="n">${i}</span><div class="qr">${qrSvg(base+'?t='+i,4)}</div><h3>${esc(C.name)}</h3><p>Scan to see the menu, order and pay by UPI</p></div></div>`;
+$('#tents').innerHTML=h;})();
+</script>
+</body>
+</html>
