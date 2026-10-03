@@ -10,7 +10,7 @@
 <meta property="og:description" content="A preview of Café Condi's QR menu with table ordering and UPI payment.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM%20Serif%20Display:ital@0;1&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../_engine/base.css?v=2610040041">
+<link rel="stylesheet" href="../_engine/base.css?v=2610040048">
 <style>:root{--bg:#FFF9EC;--surface:#FFFFFF;--ink:#22392D;--muted:#6A6B58;--accent:#2F5D46;--accent2:#E8B526;--line:#EDE3CC;--line-strong:#C9B98F;--on-accent:#fff;--on-accent2:#22392D;--f-display:'DM Serif Display',serif;--f-body:'Karla',sans-serif;--r:12px;--motif-o:.55;--h1-w:400;--h3-w:400;--h3-ls:0}.hero{background:#F6D75E}.hero::before{-webkit-mask:radial-gradient(ellipse 60% 55% at 50% 45%,transparent 35%,#000 90%);mask:radial-gradient(ellipse 60% 55% at 50% 45%,transparent 35%,#000 90%)}.hero h1{font-size:clamp(56px,16vw,96px)}.hero h1 em{color:var(--accent)}.hero .tagline{color:#3E4A36}.divider{height:14px;background:#2F5D46}.hero .tablepill{border-color:#22392D}</style>
 </head>
 <body data-layout="editorial">
@@ -19,8 +19,9 @@
   <span class="eyebrow">Waroda Road · Ranwar</span>
   <h1>Café <em>Condi</em></h1>
   <p class="tagline">A cosy townhouse serving comfort plates, fresh bakes, crêpes, galettes and coffee.</p>
-  <div class="tablepill">You're at table <b id="tableNo">4</b></div>
+  <div class="tablepill">Table <b id="tableNo">4</b><span id="codePill"></span></div>
   <div class="meta"><span>Opens 9 am</span><span>14-A Waroda Rd, Ranwar</span><span>4.5 ★ on Google</span></div>
+  <div id="gate"></div>
   <div id="track" hidden></div>
   <div class="service"><button id="callWaiter">Call a server</button><button id="callBill">Ask for the bill</button></div>
 </div></header>
@@ -37,12 +38,12 @@
   <h5>Café Condi</h5><p>14-A, Waroda Rd, Ranwar, Bandra West 400050</p><p>Opens 9 am</p><p><a href="tel:+91 98701 48816">+91 98701 48816</a> · <a href="https://instagram.com/cafe.condi">@cafe.condi</a></p>
   <p class="credit">Prices shown are indicative for this preview. Designed by <a href="https://anurag.studio">Anurag Studio</a>.</p>
 </div></footer>
-<button id="bar"><span><span id="barN"></span><small>Table <span id="barTbl">4</span> · tap to review</small></span><span>View order · <span id="barT"></span></span></button>
+<button id="bar"><span><span id="barN"></span><small id="barBy">Table cart</small></span><span>Table cart · <span id="barT"></span></span></button>
 <div id="sheet"><div id="sheetBody"></div></div>
 <div id="toast" role="status"></div>
 <script>window.CAFE={"slug":"condi","name":"Café Condi","tables":9,"upi":"cafecondi@upi","demo":true,"sections":[{"name":"All Day Breakfast","items":[["Full English Breakfast",495,0,"Eggs your way, bacon, sausages, hash brown, beans, toast","Bestseller"],["French Breakfast",395,1,"Butter croissant, jam, eggs, café au lait"],["American Breakfast Plate",445,0,"Pancakes, bacon, scrambled eggs, maple syrup"],["Belgian Waffle",295,1,"Butter, maple syrup, berries"],["Batter Fried Bacon",325,0,"Crisp, salty, dangerous"]]},{"name":"Omelettes","items":[["Goa Sausage Omelette",345,0,"Spicy chouriço folded into a three egg omelette","House special"],["Spinach Mushroom Omelette",295,1,"With toast and a little salad"],["Cheese & Herb Omelette",265,1,""]]},{"name":"Galettes","note":"Savoury buckwheat crêpes","items":[["Chicken Bacon Mushroom Galette",425,0,"Béchamel, emmental, a fried egg on top","Bestseller"],["Ham, Egg & Cheese Complète",395,0,"The Breton classic"],["Ratatouille & Goat Cheese Galette",375,1,""]]},{"name":"Crêpes","note":"Sweet","items":[["Nutella Banana Crêpe",295,1,"Warm banana, Nutella, toasted hazelnuts","Bestseller"],["Salted Caramel Crêpe",275,1,""],["Lemon Sugar Crêpe",225,1,"Simple, perfect"]]},{"name":"Herbivores & Omnivores","items":[["Mushroom Risotto",445,1,"Arborio, parmesan, thyme"],["Classic BLT",345,0,"Bacon, lettuce, tomato, toasted sourdough"],["Chicken Pesto Panini",365,0,""],["French Fries with Dipping Sauces",225,1,"Three house dips"]]},{"name":"Bakes","items":[["Butter Croissant",165,1,"Baked every morning"],["Almond Croissant",225,1,""],["Banana Walnut Loaf",175,1,""]]},{"name":"Café","items":[["Cappuccino",195,1,"","Bestseller"],["Iced Latte in a Jar",225,1,""],["Cold Coffee",225,1,""],["Hot Chocolate",245,1,""],["Iced Tea",175,1,"Peach or lemon"]]}],"gst":5,"features":{},"theme":{"motif":"flowers","motif2":"flowers","c":{"bg":"#FFF9EC","surface":"#FFFFFF","ink":"#22392D","muted":"#6A6B58","accent":"#2F5D46","accent2":"#E8B526","onAccent2":"#22392D","line":"#EDE3CC","lineStrong":"#C9B98F","motifA":"#D8668C","motifB":"#E8B526","motifBg":"#F6D75E"}}};</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
-<script src="../_engine/common.js?v=2610040041"></script>
-<script src="../_engine/app.js?v=2610040041"></script>
+<script src="../_engine/common.js?v=2610040048"></script>
+<script src="../_engine/app.js?v=2610040048"></script>
 </body>
 </html>

@@ -10,7 +10,7 @@
      Live: swap read/write for a Supabase table; the rest of the engine is unchanged. */
   function Store(slug) {
     const K = 'ww-cafe:' + slug, subs = [];
-    const blank = () => ({ orders: [], calls: [], seq: 0 });
+    const blank = () => ({ orders: [], calls: [], seq: 0, sessions: {} });
     let mem = blank();
     const bc = 'BroadcastChannel' in window ? new BroadcastChannel(K) : null;
     const read = () => { try { return JSON.parse(localStorage.getItem(K)) || mem; } catch (e) { return mem; } };

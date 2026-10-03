@@ -10,7 +10,7 @@
 <meta property="og:description" content="A preview of The Bandstand Pantry's QR menu with table ordering and UPI payment.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Josefin%20Sans:wght@400;600;700&family=Kaushan%20Script&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../_engine/base.css?v=2610040041">
+<link rel="stylesheet" href="../_engine/base.css?v=2610040048">
 <style>:root{--bg:#F8F7F3;--surface:#FFFFFF;--ink:#111111;--muted:#626262;--accent:#1C5D8C;--accent2:#111111;--line:#E5E3DC;--line-strong:#CFCBC0;--on-accent:#fff;--on-accent2:#fff;--f-display:'Josefin Sans',sans-serif;--f-body:'Figtree',sans-serif;--r:14px;--f-alt:'Kaushan Script',cursive;--motif-o:.07;--h1-w:700;--h1-ls:.18em;--r-btn:99px}.hero h1{display:flex;flex-direction:column;align-items:center;font-size:20px;text-transform:uppercase}.hero h1 small{font-size:clamp(20px,6vw,30px);letter-spacing:.24em}.hero h1 span{font-family:var(--f-alt);text-transform:none;letter-spacing:0;font-weight:400;font-size:clamp(64px,19vw,104px);line-height:.9;color:var(--accent);margin-top:-2px;padding-bottom:14px}.divider{height:20px;background-size:auto 20px}.sec-h h3{text-transform:uppercase;letter-spacing:.08em;font-size:20px!important}.hero{border-bottom:14px solid transparent;border-image:var(--motif) 0 0 14 0 repeat}</style>
 </head>
 <body data-layout="cards">
@@ -19,8 +19,9 @@
   <span class="eyebrow">Sea facing · Bandstand</span>
   <h1><small>The Bandstand</small><span>pantry</span></h1>
   <p class="tagline">Good food, good view, good time. Order from your table by the sea, 7:30 am to midnight.</p>
-  <div class="tablepill">You're at table <b id="tableNo">4</b></div>
+  <div class="tablepill">Table <b id="tableNo">4</b><span id="codePill"></span></div>
   <div class="meta"><span>7:30 am to midnight</span><span>Bandstand Apartments, BJ Rd</span><span>4.2 ★ on Google</span></div>
+  <div id="gate"></div>
   <div id="track" hidden></div>
   <div class="service"><button id="callWaiter">Call a server</button><button id="callBill">Ask for the bill</button></div>
 </div></header>
@@ -37,12 +38,12 @@
   <h5>The Bandstand Pantry</h5><p>Shop 1, Bandstand Apartments, BJ Rd, next to Barista, Mount Mary, Bandra West 400050</p><p>7:30 am to midnight</p><p><a href="tel:+91 99201 00084">+91 99201 00084</a> · <a href="https://instagram.com/thebandstandpantry">@thebandstandpantry</a></p>
   <p class="credit">Prices shown are indicative for this preview. Designed by <a href="https://anurag.studio">Anurag Studio</a>.</p>
 </div></footer>
-<button id="bar"><span><span id="barN"></span><small>Table <span id="barTbl">4</span> · tap to review</small></span><span>View order · <span id="barT"></span></span></button>
+<button id="bar"><span><span id="barN"></span><small id="barBy">Table cart</small></span><span>Table cart · <span id="barT"></span></span></button>
 <div id="sheet"><div id="sheetBody"></div></div>
 <div id="toast" role="status"></div>
 <script>window.CAFE={"slug":"bandstandpantry","name":"The Bandstand Pantry","tables":18,"upi":"bandstandpantry@upi","demo":true,"sections":[{"name":"All Day Breakfast","items":[["Eggs Benedict",445,1,"Poached eggs, hollandaise, toasted English muffin","Bestseller"],["Salmon Benedict",625,0,"Smoked salmon, hollandaise, chives"],["Turkish Eggs",425,1,"Garlic yoghurt, chilli butter, sourdough"],["Egg Florentine",425,1,"Spinach, poached eggs, hollandaise"],["Avocado with Sourdough",445,1,"Smashed avocado, feta, chilli"]]},{"name":"Skillets","note":"Oven baked, served sizzling","items":[["Oven Baked French Toast Skillet",395,1,"Brioche, berries, maple, mascarpone"],["Grandma's Secret Skillet",475,0,"Eggs, sausage, potatoes, cheese, her recipe"]]},{"name":"Toasties & Flatbreads","items":[["Signature Mushroom Pâté Flatbread",445,1,"Mushroom pâté, rocket, parmesan","Signature"],["Veg Catalan Flatbread",425,1,"Romesco, roasted peppers, olives"],["Harissa Chicken Flatbread",495,0,""]]},{"name":"Sandwiches & Comfort","items":[["Smoked Salmon & Cream Cheese Sandwich",545,0,""],["Tex Mex Sandwich",395,1,"Beans, corn, jalapeño, cheddar"],["Mac and Cheese",425,1,"Three cheese, baked crust"],["Guac & Chips",325,1,""]]},{"name":"Smoothie Bowls & Millets","items":[["Power Hub Smoothie Bowl",445,1,"Açaí, banana, nut butter, granola","Bestseller"],["Vegan Madras Millets Khichdi",395,1,"New. Little millets, coconut, curry leaf","New"]]},{"name":"House Desserts","items":[["Classic French Eclairs",275,1,"Homemade, from our bakery Nostalgia"],["Basque Burnt Cheesecake",375,1,""]]},{"name":"Drinks","items":[["Cappuccino",225,1,"","Bestseller"],["Classic Hot Chocolate",275,1,""],["Masala Chai",145,1,""],["Sea Breeze Cooler",245,1,"Watermelon, mint, lime"],["Berry Smoothie",325,1,""]]}],"gst":5,"features":{},"theme":{"motif":"checker","motif2":"waves","c":{"bg":"#F8F7F3","surface":"#FFFFFF","ink":"#111111","muted":"#626262","accent":"#1C5D8C","accent2":"#111111","line":"#E5E3DC","lineStrong":"#CFCBC0","motifA":"#1C5D8C","motifBg":"#F8F7F3","motifInk":"#111111"}}};</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
-<script src="../_engine/common.js?v=2610040041"></script>
-<script src="../_engine/app.js?v=2610040041"></script>
+<script src="../_engine/common.js?v=2610040048"></script>
+<script src="../_engine/app.js?v=2610040048"></script>
 </body>
 </html>
